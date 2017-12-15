@@ -114,7 +114,7 @@ public class Pedido {
     }
 
     public static File gerarArquivo(Integer numMesa) {
-        return new File("C:\\Users\\Rian Alves\\Desktop\\Laboratório\\ufjf-dcc171-2017-3-trb1-Rian18-master\\TESTE", "Pedido " + numMesa + ".txt");
+        return new File("TESTE", "Pedido " + numMesa + ".txt");
     }
 
     public String HoraToString() {
