@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restaurante;
 
 import java.awt.FlowLayout;
@@ -80,13 +75,17 @@ public class Cardapio extends JFrame {
         
         item = new Item(1, "Arroz a grega", 20.0);
         Item item1 = new Item(1, "Feijão Tropeiro", 20.0);
-        Item item2 = new Item(1, "Farofa", 15.0);
-        Item item3 = new Item(1, "Batata Frita", 12.0);
+        Item item2 = new Item(2, "Farofa", 15.0);
+        Item item3 = new Item(3, "Batata Frita", 12.0);
+        Item item4 = new Item(4, "Refrigerante Antartica 1 Litro", 5.0);
+        Item item5 = new Item(5, "Skol", 7.0);
                 
         itensCardapio.add(item);
         itensCardapio.add(item1);
         itensCardapio.add(item2);
         itensCardapio.add(item3);
+        itensCardapio.add(item4);
+        itensCardapio.add(item5);
         int cont = 0;
         
         for (Object o : itensCardapio) {

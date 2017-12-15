@@ -6,6 +6,7 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -81,7 +82,13 @@ class Inicio extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Restaurante.telaPedidos();
+                    try {
+                        Restaurante.telaPedidos();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } catch (HeadlessException ex) {
                     Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
                 }
