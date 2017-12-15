@@ -63,28 +63,7 @@ public class PedidoDAO {
 
     }
 
-    public static void AlterarArquivo(int numMesa, Item p) throws IOException {
-        File arquivoPedido = Pedido.gerarArquivo(numMesa);
-        PrintWriter escrever = new PrintWriter(arquivoPedido);
-        BufferedReader leitor = new BufferedReader(new FileReader(arquivoPedido));
-
-        String linha = null;
-        ArrayList<String> copiar = new ArrayList<>();
-
-        while ((linha = leitor.readLine()) != null) {
-            copiar.add(linha.toString());
-            //escrever.println(leitor.readLine());
-        }
-        copiar.add(p.toString());
-
-        for (int i = 0; i < copiar.size(); i++) {
-            escrever.println(copiar.get(i));
-        }
-
-        escrever.close();
-
-    }
-
+    
     public static void AdicionarMesasOcupadas(List<Integer> listaMesasOcupadas) throws IOException {
         File arquivoOcupadas = new File("C:\\Users\\Rian Alves\\Desktop\\Laboratório\\ufjf-dcc171-2017-3-trb1-Rian18-master\\TESTE", "Mesas Ocupadas.txt ");
 
@@ -119,30 +98,7 @@ public class PedidoDAO {
         return mesasOcupadas;
     }
 
-    public static void DiminuirMesasOcupadas(int numMesa) throws IOException {
-        List<Integer> mesas = new ArrayList<>();
-
-        for (int i = 0; i < mesas.size(); i++) {
-            if (mesas.get(i).equals(numMesa)) {
-                mesas.remove(i);
-            }
-        }
-        File arquivoOcupadas = new File("C:\\Users\\Rian Alves\\Desktop\\Laboratório\\ufjf-dcc171-2017-3-trb1-Rian18-master\\TESTE", "Mesas Ocupadas.txt ");
-        mesasOcupadas.add(numMesa);
-        arquivoOcupadas.delete();
-        if (!(arquivoOcupadas).exists()) {
-            arquivoOcupadas.createNewFile();
-        }
-        PrintWriter escrever = new PrintWriter(arquivoOcupadas);
-
-        for (int i = 0; i < mesasOcupadas.size(); i++) {
-            escrever.println(mesasOcupadas.get(i));
-
-        }
-
-        escrever.close();
-
-    }
+   
 
     public static Pedido LerArquivo(Integer numMesa) throws IOException, ParseException {
 
@@ -193,17 +149,18 @@ public class PedidoDAO {
         File arquivoPedido = Pedido.gerarArquivo(numMesa);
 
         for (int i = 0; i < mesasOcupadas.size(); i++) {
-            if (mesasOcupadas.get(i)== numMesa) {
-                mesasOcupadas.remove(i);
+            if (mesasOcupadas.contains(i)) {
+                mesasOcupadas.remove(numMesa);
                 
             }
-            PrintWriter escrever = new PrintWriter(arquivoOcupadas);
+           
+        }
+         PrintWriter escrever = new PrintWriter(arquivoOcupadas);
 
                 for (int j = 0; j < mesasOcupadas.size(); j++) {
                     escrever.println(mesasOcupadas.get(j));
                 }
                  escrever.close();
-        }
 
        
 
