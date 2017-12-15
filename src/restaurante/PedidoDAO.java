@@ -65,7 +65,7 @@ public class PedidoDAO {
 
     
     public static void AdicionarMesasOcupadas(List<Integer> listaMesasOcupadas) throws IOException {
-        File arquivoOcupadas = new File("C:\\Users\\Rian Alves\\Desktop\\Laboratório\\ufjf-dcc171-2017-3-trb1-Rian18-master\\TESTE", "Mesas Ocupadas.txt ");
+        File arquivoOcupadas = new File("TESTE", "Mesas Ocupadas.txt ");
 
         if (!(arquivoOcupadas).exists()) {
             arquivoOcupadas.createNewFile();
@@ -85,7 +85,7 @@ public class PedidoDAO {
     public static List<Integer> VerMesasOcupadas() throws FileNotFoundException, IOException {
         String linha;
 
-        File arquivoOcupadas = new File("C:\\Users\\Rian Alves\\Desktop\\Laboratório\\ufjf-dcc171-2017-3-trb1-Rian18-master\\TESTE", "Mesas Ocupadas.txt ");
+        File arquivoOcupadas = new File("TESTE", "Mesas Ocupadas.txt ");
         BufferedReader leitor = new BufferedReader(new FileReader(arquivoOcupadas));
 
         while ((linha = leitor.readLine()) != null) {
@@ -145,7 +145,7 @@ public class PedidoDAO {
 
     public static List<Integer> encerrarPedido(int numMesa) throws FileNotFoundException {
 
-        File arquivoOcupadas = new File("C:\\Users\\Rian Alves\\Desktop\\Laboratório\\ufjf-dcc171-2017-3-trb1-Rian18-master\\TESTE", "Mesas Ocupadas.txt ");
+        File arquivoOcupadas = new File("TESTE", "Mesas Ocupadas.txt ");
         File arquivoPedido = Pedido.gerarArquivo(numMesa);
 
         for (int i = 0; i < mesasOcupadas.size(); i++) {
